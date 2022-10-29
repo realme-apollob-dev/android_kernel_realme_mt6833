@@ -2,6 +2,13 @@
 # Himax Touchscreen driver configuration
 #
 
+config TOUCHSCREEN_HIMAX_COMMON
+        tristate "HIMAX common touchscreen"
+        help
+          Say Y here to enable support for I2C based touch>
+          To compile this driver as a module, choose M her>
+          module will be called HimaxChipsets.
+
 config TOUCHSCREEN_HIMAX_I2C
 	bool "HIMAX chipset i2c touchscreen"
 	help

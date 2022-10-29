@@ -2,19 +2,6 @@
 # Himax Touchscreen driver configuration
 #
 
-config TOUCHSCREEN_HIMAX_COMMON
-        tristate "HIMAX common touchscreen"
-	depends on TOUCHSCREEN_HIMAX_CHIPSET_8789P1_8185P3
-	help
-	Say Y here to enable support for I2C based touchscreens.
-	To compile this driver as a module, choose M here: the
-	module will be called HimaxChipsetTs.
-
-choice
-	prompt "HIMAX touch IC types"
-	depends on TOUCHSCREEN_HIMAX_COMMON
-	default TOUCHSCREEN_HIMAX_INCELL
-
 config TOUCHSCREEN_HIMAX_ONCELL
         bool "HIMAX chipset on-cell function"
 	depends on TOUCHSCREEN_HIMAX_COMMON
@@ -32,8 +19,6 @@ config TOUCHSCREEN_HIMAX_INCELL
 	  If unsure, not set it.
 	  there are some in-cell function in the code of Himax touch.
 	  choose the config here to support for the in-cell function.
-
-endchoice
 
 # ***************** On-cell Start *****************
 config TOUCHSCREEN_HIMAX_IC_HX852xH
