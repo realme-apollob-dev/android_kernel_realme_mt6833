@@ -2301,7 +2301,6 @@ int DumpThreadNativeInfo(struct aee_oops *oops)
 	struct file *file;
 	unsigned long flags;
 	struct mm_struct *mm;
-	int ret = 0;
 	char tpath[512];
 	char *path_p = NULL;
 	struct path base_path;
@@ -2453,7 +2452,7 @@ int DumpThreadNativeInfo(struct aee_oops *oops)
 			pr_info("ERR: %s userstack_start=NULL\n", __func__);
 			return 0;
 		}
-		ret = copy_from_user(
+		copy_from_user(
 			(void *)(oops->userthread_stack.Userthread_Stack),
 			(const void __user *)(userstack_start), length);
 	} else {	/*K64+U64*/
@@ -2482,7 +2481,7 @@ int DumpThreadNativeInfo(struct aee_oops *oops)
 			pr_info("ERR: %s userstack_start = NULL\n", __func__);
 			return 0;
 		}
-		ret = copy_from_user(
+		copy_from_user(
 			(void *)(oops->userthread_stack.Userthread_Stack),
 			(const void __user *)(userstack_start), length);
 	}

@@ -3,9 +3,9 @@
 #
 
 #subdir-ccflags-y += -Werror
-$(info ************  drivers/trusty/mtee-kree mk ************)
+#$(info ************  drivers/trusty/mtee-kree mk ************)
 
-ccflags-y := -I$(srctree)/drivers/misc/mediatek/geniezone/public -Werror $(ccflags-y)
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/geniezone/public
 
 ifneq ($(CONFIG_MACH_MT6758), y)
 ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/ppm_v3/src/mach/$(CONFIG_MTK_PLATFORM)

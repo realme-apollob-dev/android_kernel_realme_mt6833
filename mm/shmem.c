@@ -3273,7 +3273,7 @@ static int shmem_symlink(struct inode *dir, struct dentry *dentry, const char *s
 	int len;
 	struct inode *inode;
 	struct page *page;
-	struct shmem_inode_info *info;
+	struct shmem_inode_info *info __maybe_unused;
 
 	len = strlen(symname) + 1;
 	if (len > PAGE_SIZE)

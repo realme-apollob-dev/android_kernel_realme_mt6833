@@ -87,8 +87,7 @@ void mtk_afe_debug_write_reg(struct file *file, void *arg)
 	unsigned long reg_addr = 0;
 	unsigned long reg_value = 0;
 	unsigned int reg_value_after;
-	int ret = 0;
-
+	int ret __maybe_unused;
 	token1 = strsep(&temp, delim);
 	token2 = strsep(&temp, delim);
 	dev_info(afe->dev, "%s(), token1 %s, token2 %s, temp %s\n",

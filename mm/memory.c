@@ -4392,24 +4392,18 @@ static int __handle_mm_fault(struct vm_area_struct *vma, unsigned long address,
 #ifndef spf_pxd_flunked
 static inline bool spf_pgd_flunked(pgd_t *pgd)
 {
-	pgd_t pgdval;
+	pgd_t pgdval __maybe_unused;
 
 	pgdval = READ_ONCE(*pgd);
-	if (pgd_none(pgdval) || unlikely(pgd_bad(pgdval)))
-		return true;
-
-	return false;
+	return (pgd_none(pgdval) || unlikely(pgd_bad(pgdval)));
 }
 
 static inline bool spf_p4d_flunked(p4d_t *p4d)
 {
-	p4d_t p4dval;
+	p4d_t p4dval __maybe_unused;
 
 	p4dval = READ_ONCE(*p4d);
-	if (p4d_none(p4dval) || unlikely(p4d_bad(p4dval)))
-		return true;
-
-	return false;
+	return (p4d_none(p4dval) || unlikely(p4d_bad(p4dval)));
 }
 #endif
 
